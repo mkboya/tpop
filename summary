@@ -1,0 +1,13 @@
+As a lead on the TPOP project, I had the opportunity to manage various challenges and contribute to its success. One of the significant accomplishments was implementing the new MEG (Message Encryption Gateway) process. 
+This involved working closely with the team to design and implement an improved encryption mechanism for secure communication.
+
+One specific area where I played an active role was utilizing Node-Jose, a JavaScript library for cryptographic operations, to implement the decrypt function during base64 decoding. This was a critical step in 
+the process as it allowed us to securely decode incoming data that was encrypted using a private key. By leveraging Node-Jose, we were able to efficiently decrypt the data and ensure its integrity and confidentiality.
+
+This implementation was particularly significant as it had never been done before in the project. It required a deep understanding of cryptographic concepts and expertise in working with encryption algorithms and keys. 
+By successfully implementing this decrypt function using Node-Jose, we enhanced the security of the system and ensured the integrity of the incoming data.
+
+Throughout this process, I collaborated closely with the team, providing technical guidance and sharing my knowledge of cryptography and Node-Jose. 
+I also contributed to documenting the implementation details and providing support to other team members involved in the project.
+
+Overall, my role in utilizing Node-Jose for the decrypt function during base64 decoding was instrumental in achieving the project's goals of enhancing security and handling encrypted data effectively.
