@@ -2,12 +2,35 @@ As a lead on the TPOP project, I had the opportunity to manage various challenge
 This involved working closely with the team to design and implement an improved encryption mechanism for secure communication.
 
 One specific area where I played an active role was utilizing Node-Jose, a JavaScript library for cryptographic operations, to implement the decrypt function during base64 decoding. This was a critical step in 
-the process as it allowed us to securely decode incoming data that was encrypted using a private key. By leveraging Node-Jose, we were able to efficiently decrypt the data and ensure its integrity and confidentiality.
+the process as it allowed us to securely decode incoming data that was encrypted using a private key. By leveraging Node-Jose, 
+we were able to efficiently decrypt the data and ensure its integrity and confidentiality.
 
-This implementation was particularly significant as it had never been done before in the project. It required a deep understanding of cryptographic concepts and expertise in working with encryption algorithms and keys. 
-By successfully implementing this decrypt function using Node-Jose, we enhanced the security of the system and ensured the integrity of the incoming data.
+Here is the summary of the code : 
 
-Throughout this process, I collaborated closely with the team, providing technical guidance and sharing my knowledge of cryptography and Node-Jose. 
-I also contributed to documenting the implementation details and providing support to other team members involved in the project.
 
-Overall, my role in utilizing Node-Jose for the decrypt function during base64 decoding was instrumental in achieving the project's goals of enhancing security and handling encrypted data effectively.
+The provided code performs decryption and displays a porting PIN on the frontend. Here's a summary of the code:
+
+1. The `decryptAesJwe` function is responsible for decrypting a JWE (JSON Web Encryption) that has been encrypted with AES256. 
+It takes an input string and a key as parameters and returns the decrypted plaintext as a promise.
+
+2. The `getKey` function is a utility function used to select a key based on its key type from an array of keys.
+
+3. The `decryptRsaKey` function is a placeholder for RSA decryption logic. 
+Currently, it returns a promise resolved with the message "RSA Not Added." Actual RSA decryption logic needs to be implemented in this function if RSA decryption is required.
+
+4. The `getTpopToken` function retrieves a TPOP (Transfer Port of PIN) token by invoking the `eos-profile` API. 
+It takes a JWT (JSON Web Token), a ban (billing account number), and headers as parameters. 
+It creates a request using the provided JWT, ban, and headers, and makes a GET request to the `eos-profile` API. The response is then returned.
+
+5. The `createTpopRequest` function creates a TPOP request by assembling the necessary headers and other request parameters. 
+It takes a JWT, a ban, and headers as parameters and returns an HttpRequest object.
+
+6. The `getTpopGeneratedToken` function is responsible for retrieving a generated TPOP token. 
+It takes an `auth` object and headers as parameters. It extracts relevant information from the JWT token, such as the payload, MSISDN, ban, and ACR value. 
+If a toggle is enabled, and the ACR value matches the specified value for TPOP, the function proceeds with obtaining the encrypted PIN from the API using the 
+`getTpopToken` function from the repository. 
+If RSA decryption is enabled (`tpopUseRsaDecryption` is true), it calls the `decryptRsaKey` function to decrypt the PIN. Otherwise,
+it calls the `decryptAesJwe` function to decrypt the PIN using AES256 encryption with the provided AES private key. 
+Finally, it returns the decrypted PIN along with the expiry time.
+
+It's worth noting that the code includes error handling for different scenarios, such as when 2FA is required or when TPOP is disabled.
